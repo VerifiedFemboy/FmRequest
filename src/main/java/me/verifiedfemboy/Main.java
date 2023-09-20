@@ -1,6 +1,7 @@
 package me.verifiedfemboy;
 
 import me.verifiedfemboy.fm.API;
+import me.verifiedfemboy.fm.image.ImageSize;
 import me.verifiedfemboy.fm.track.recentTrack;
 
 import java.io.IOException;
@@ -18,8 +19,8 @@ public class Main {
             recentTrack recentTrack = new recentTrack(user, api);
             String track_name = recentTrack.getTrackName();
             String artist_name = recentTrack.getArtistName();
-
-            System.out.println(track_name + " - " + artist_name);
+            String album_name = recentTrack.getAlbumName();
+            System.out.println(track_name + " - " + artist_name + " Album: " + album_name + " Image: " + recentTrack.getImage(ImageSize.EXTRALARGE));
 
         } catch (IOException e) {
             e.printStackTrace();
