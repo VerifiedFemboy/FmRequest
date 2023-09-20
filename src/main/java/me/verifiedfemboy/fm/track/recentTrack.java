@@ -8,7 +8,7 @@ import me.verifiedfemboy.fm.image.ImageSize;
 
 import java.io.IOException;
 
-public class recentTrack{
+public class recentTrack {
 
     JsonObject jsonObject;
 
