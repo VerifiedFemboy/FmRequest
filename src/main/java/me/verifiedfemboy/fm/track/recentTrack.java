@@ -38,7 +38,7 @@ public class recentTrack {
     public String getAlbumName(){
         return getAlbum().get("#text").getAsString();
     }
-    public JsonArray getImage(){
+    private JsonArray getImage(){
         return Track().get("image").getAsJsonArray();
     }
     public String getImage(ImageSize imageSize){
@@ -52,7 +52,7 @@ public class recentTrack {
             case LARGE -> {
                 return getImage().get(2).getAsJsonObject().get("#text").getAsString();
             }
-            case EXTRALARGE -> {
+            case EXTRA_LARGE -> {
                 return getImage().get(3).getAsJsonObject().get("#text").getAsString();
             }
         }

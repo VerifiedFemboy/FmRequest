@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String API_KEY = "80f7a246ca008d9faeaedd08055a0a08";
+        String API_KEY = "";
         API api = new API();
         api.setAPI_KEY(API_KEY);
         String user = "muraz_kysior";

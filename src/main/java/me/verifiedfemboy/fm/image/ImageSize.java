@@ -5,5 +5,5 @@ public enum ImageSize {
     SMALL,
     MEDIUM,
     LARGE,
-    EXTRALARGE
+    EXTRA_LARGE
 }
