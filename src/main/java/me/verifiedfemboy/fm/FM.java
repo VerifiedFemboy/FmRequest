@@ -1,8 +1,10 @@
 package me.verifiedfemboy.fm;
 
-public class API {
+import org.jetbrains.annotations.Nullable;
 
-    String API_KEY = null;
+public class FM {
+
+    protected String API_KEY = null;
 
     public String getAPI_KEY() {
         return API_KEY;

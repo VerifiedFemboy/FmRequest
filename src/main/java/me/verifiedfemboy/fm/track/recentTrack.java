@@ -2,18 +2,19 @@ package me.verifiedfemboy.fm.track;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import me.verifiedfemboy.fm.API;
+import me.verifiedfemboy.fm.FM;
 import me.verifiedfemboy.fm.FMUtils;
 import me.verifiedfemboy.fm.image.ImageSize;
+import me.verifiedfemboy.fm.user.User;
 
 import java.io.IOException;
 
 public class recentTrack {
 
-    JsonObject jsonObject;
+    protected JsonObject jsonObject;
 
-    public recentTrack(String userName, API api) throws IOException {
-        String url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=" + userName + "&api_key=" + api.getAPI_KEY() + "&format=json";
+    public recentTrack(User user, FM FM) throws IOException {
+        String url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=" + user.getName() + "&api_key=" + FM.getAPI_KEY() + "&format=json";
         jsonObject = FMUtils.getJson().fromJson(FMUtils.sendRequest(url), JsonObject.class);
     }
     public JsonObject recentTracks(){

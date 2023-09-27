@@ -2,7 +2,7 @@ package me.verifiedfemboy.fm.artist;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import me.verifiedfemboy.fm.API;
+import me.verifiedfemboy.fm.FM;
 import me.verifiedfemboy.fm.FMUtils;
 import me.verifiedfemboy.fm.image.ImageSize;
 
@@ -10,14 +10,14 @@ import java.io.IOException;
 
 public class Artist {
 
-    JsonObject jsonObject;
+    protected JsonObject jsonObject;
 
-    public Artist(String name, API api) throws IOException {
-        String url = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + name + "&api_key=" + api.getAPI_KEY() + "&format=json";
+    public Artist(String name, FM FM) throws IOException {
+        String url = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + name + "&api_key=" + FM.getAPI_KEY() + "&format=json";
         jsonObject = FMUtils.getJson().fromJson(FMUtils.sendRequest(url), JsonObject.class);
     }
 
-    public JsonObject getArtist(){
+    private JsonObject getArtist(){
         return jsonObject.getAsJsonObject("artist");
     }
 
