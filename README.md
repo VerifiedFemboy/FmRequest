@@ -6,7 +6,7 @@ This library is still in under development
 
 # How to use? 
 Example for recentTrack:
-```
+```java
 public class Main {
 
 
