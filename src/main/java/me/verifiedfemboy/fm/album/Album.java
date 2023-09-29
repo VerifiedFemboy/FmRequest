@@ -1,4 +1,4 @@
-package me.verifiedfemboy.fm.artist;
+package me.verifiedfemboy.fm.album;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -9,34 +9,32 @@ import me.verifiedfemboy.fm.stats.Stats;
 
 import java.io.IOException;
 
-public class Artist {
+public class Album {
+
+    private String album_name;
+    private String artist_name;
 
     protected JsonObject jsonObject;
 
-    public Artist(String name, FM FM) throws IOException {
-        name = name.replace(" ", "%20");
-        String url = "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + name + "&api_key=" + FM.getAPI_KEY() + "&format=json";
+    public Album(String artist_name, String album_name, FM fm) throws IOException {
+        album_name = album_name.replace(" ", "%20");
+        artist_name = artist_name.replace(" ", "%20");
+        this.artist_name = artist_name;
+        this.album_name = album_name;
+        String url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + fm.getAPI_KEY() + "&artist=" + artist_name + "&album=" + album_name + "&format=json";
         jsonObject = FMUtils.getJson().fromJson(FMUtils.sendRequest(url), JsonObject.class);
     }
 
-    private JsonObject getArtist(){
-        return jsonObject.getAsJsonObject("artist");
-    }
-
-    private JsonObject getBio(){
-        return getArtist().getAsJsonObject("bio");
+    private JsonObject getAlbum(){
+        return jsonObject.getAsJsonObject("album");
     }
 
     public Stats getStats(){
-        return new Stats(getArtist().getAsJsonObject("stats"));
-    }
-
-    public String getSummary(){
-        return getBio().get("summary").getAsString();
+        return new Stats(getAlbum());
     }
 
     private JsonArray getImage(){
-        return getArtist().getAsJsonArray("image");
+        return getAlbum().getAsJsonArray("image");
     }
 
     public String getImage(ImageSize imageSize){

@@ -1,7 +1,5 @@
 package me.verifiedfemboy.fm;
 
-import org.jetbrains.annotations.Nullable;
-
 public class FM {
 
     protected String API_KEY = null;

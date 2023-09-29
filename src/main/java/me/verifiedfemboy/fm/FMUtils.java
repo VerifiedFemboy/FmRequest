@@ -13,7 +13,6 @@ import java.io.IOException;
 
 public class FMUtils {
 
-
     public static Gson getJson(){
         return new GsonBuilder().setPrettyPrinting().create();
     }

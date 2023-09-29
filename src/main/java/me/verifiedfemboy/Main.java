@@ -1,7 +1,6 @@
 package me.verifiedfemboy;
 
 import me.verifiedfemboy.fm.FM;
-import me.verifiedfemboy.fm.artist.Artist;
 import me.verifiedfemboy.fm.image.ImageSize;
 import me.verifiedfemboy.fm.track.recentTrack;
 import me.verifiedfemboy.fm.user.User;
